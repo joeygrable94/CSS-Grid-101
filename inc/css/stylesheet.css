@@ -1,0 +1,1001 @@
+/* HEADER */
+.float-right {
+	float: right;
+}
+.float-left {
+	float: left;
+}
+header {
+	border-bottom: 5px solid black;
+	padding: var(--baseFontEm);
+}
+nav {
+	display: block;
+	width: 100%;
+}
+nav a {
+	color: black;
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+	padding-top: var(--msDown5);
+	padding-bottom: var(--msDown5);
+	margin-right: var(--msDown2);
+}
+nav a:first-child { padding-left: 0em; }
+nav a:last-child { padding-right: 0em; }
+nav a:hover { border-bottom: 2px solid black; }
+main { padding: var(--baseFontEm); }
+
+/* GRID SPECS */
+main#grid-specs {
+	width: 80%;
+	max-width: 800px;
+	margin: var(--baseFontEm) auto;
+}
+
+main#grid-specs pre {
+	overflow: scroll;
+	padding: var(--baseFontEm);
+	margin-bottom: var(--msUp4);
+}
+main#grid-basics section pre.hidden {
+	overflow-x: scroll;
+}
+
+/* GRID BASICS */
+main#grid-basics {
+	width: 100vw;
+	min-height: 100vh;
+}
+main#grid-basics section {
+	min-height: 100vh;
+	width: 100%;
+	max-width: 960px;
+	border-bottom: 5px solid black;
+	margin: 0 auto;
+	padding-top: var(--baseFontEm);
+	padding-bottom: var(--msUp10);
+	margin-bottom: var(--baseFontEm);
+}
+main#grid-basics section .wrapper {
+	padding-top: var(--baseFontEm);
+	padding-bottom: var(--baseFontEm);
+	margin-top: var(--baseFontEm);
+	margin-bottom: var(--baseFontEm);
+}
+main#grid-basics section .wrapper .box {
+	border: 1px solid red;
+	border-radius: 5px;
+	padding: var(--msDown2);
+}
+
+/* Line-based placement */
+main#grid-basics section.line-plcmt .wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-gap: 10px;
+}
+main#grid-basics section.line-plcmt .wrapper .box.a {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+main#grid-basics section.line-plcmt .wrapper .box.b {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+main#grid-basics section.line-plcmt .wrapper .box.c {
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+main#grid-basics section.line-plcmt .wrapper .box.d {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+main#grid-basics section.line-plcmt .wrapper .box.e {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+main#grid-basics section.line-plcmt .wrapper .box.f {
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+/* Line-based placement shorthand: grid-row and grid-column */
+main#grid-basics section.line-plcmt-row-col .wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-gap: 10px;
+}
+main#grid-basics section.line-plcmt-row-col .wrapper .box.a {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}
+main#grid-basics section.line-plcmt-row-col .wrapper .box.b {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+}
+main#grid-basics section.line-plcmt-row-col .wrapper .box.c {
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+}
+main#grid-basics section.line-plcmt-row-col .wrapper .box.d {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+main#grid-basics section.line-plcmt-row-col .wrapper .box.e {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
+main#grid-basics section.line-plcmt-row-col .wrapper .box.f {
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+}
+
+/* Line-based placement shorthand: grid-area || row-start / column-start / row-end / column-end */
+main#grid-basics section.line-plcmt-area .wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-gap: 10px;
+}
+main#grid-basics section.line-plcmt-area .wrapper .box.a {
+	grid-area: 1 / 2 / 2 / 3;
+}
+main#grid-basics section.line-plcmt-area .wrapper .box.b {
+	grid-area: 2 / 2 / 3 / 3;
+}
+main#grid-basics section.line-plcmt-area .wrapper .box.c {
+	grid-area: 2 / 3 / 3 / 4;
+}
+main#grid-basics section.line-plcmt-area .wrapper .box.d {
+	grid-area: 1 / 1 / 2 / 2;
+}
+main#grid-basics section.line-plcmt-area .wrapper .box.e {
+	grid-area: 2 / 1 / 3 / 2;
+}
+main#grid-basics section.line-plcmt-area .wrapper .box.f {
+	grid-area: 1 / 3 / 2 / 4;
+}
+
+/* Line-based placement spanning tracks */
+main#grid-basics section.line-plcmt-spanning .wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-gap: 10px;
+}
+main#grid-basics section.line-plcmt-spanning .wrapper .box.a {
+	grid-column: 1 / 3;
+	grid-row: 1;
+}
+main#grid-basics section.line-plcmt-spanning .wrapper .box.b {
+	grid-column: 3;
+	grid-row: 1 / 3;
+}
+main#grid-basics section.line-plcmt-spanning .wrapper .box.c {
+	grid-column: 1;
+	grid-row: 2;
+}
+main#grid-basics section.line-plcmt-spanning .wrapper .box.d {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+/* Line-based placement spanning tracks with the span keyword */
+main#grid-basics section.line-plcmt-span-keyword .wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-gap: 10px;
+}
+main#grid-basics section.line-plcmt-span-keyword .wrapper .box.a {
+	grid-column: 1 / span 2;
+	grid-row: 1;
+}
+main#grid-basics section.line-plcmt-span-keyword .wrapper .box.b {
+	grid-column: 3;
+	grid-row: 1 / span 2;
+}
+main#grid-basics section.line-plcmt-span-keyword .wrapper .box.c {
+	grid-column: 1;
+	grid-row: 2;
+}
+main#grid-basics section.line-plcmt-span-keyword .wrapper .box.d {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+/* Line-based placement named lines */
+main#grid-basics section.line-plcmt-named-lines .wrapper {
+	display: grid;
+	grid-template-columns: [col1-start] 100px [col2-start] 100px [col3-start] 100px [col3-end];
+	grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+	grid-gap: 10px;
+}
+main#grid-basics section.line-plcmt-named-lines .wrapper .box.a {
+	grid-column: col1-start / col3-start;
+	grid-row: row1-start;
+}
+main#grid-basics section.line-plcmt-named-lines .wrapper .box.b {
+	grid-column: col3-start;
+	grid-row: row1-start / row2-end;
+}
+main#grid-basics section.line-plcmt-named-lines .wrapper .box.c {
+	grid-column: col1-start;
+	grid-row: row2-start;
+}
+main#grid-basics section.line-plcmt-named-lines .wrapper .box.d {
+	grid-column: col2-start;
+	grid-row: row2-start;
+}
+
+/* Line-based placement named lines with spans */
+main#grid-basics section.named-lines-with-span .wrapper {
+	display: grid;
+	grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px;
+	grid-template-rows: [row] auto [row] auto [row];
+	grid-gap: 10px;
+}
+main#grid-basics section.named-lines-with-span .wrapper .box.a {
+	grid-column: col / span 2;
+	grid-row: row;
+}
+main#grid-basics section.named-lines-with-span .wrapper .box.b {
+	grid-column: col 3 / span 2;
+	grid-row: row;
+}
+main#grid-basics section.named-lines-with-span .wrapper .box.c {
+	grid-column: col;
+	grid-row: row 2;
+}
+main#grid-basics section.named-lines-with-span .wrapper .box.d {
+	grid-column: col 2 / span 3;
+	grid-row: row 2;
+}
+main#grid-basics section.named-lines-with-span .wrapper .box.e {
+	grid-column: col / span 4;
+	grid-row: row 3;
+}
+
+/* Using repeat notation */
+main#grid-basics section.note-repeat .wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, [col] 100px);
+	grid-template-rows: repeat(4, [row] auto);
+	grid-gap: 10px;
+}
+main#grid-basics section.note-repeat .wrapper .box.a {
+	grid-column: col / span 2;
+	grid-row: row;
+}
+main#grid-basics section.note-repeat .wrapper .box.b {
+	grid-column: col 3 / span 2;
+	grid-row: row;
+}
+main#grid-basics section.note-repeat .wrapper .box.c {
+	grid-column: col;
+	grid-row: row 2;
+}
+main#grid-basics section.note-repeat .wrapper .box.d {
+	grid-column: col 2 / span 3;
+	grid-row: row 2;
+}
+main#grid-basics section.note-repeat .wrapper .box.e {
+	grid-column: col / span 4;
+	grid-row: row 3;
+}
+
+/* Explicit and Implicit Grid */
+main#grid-basics section.grid-explicit-implicit .wrapper {
+	display: grid;
+	grid-template-columns: 100px 100px 100px;
+	grid-auto-columns: 100px;
+	grid-auto-rows: 50px;
+	grid-gap: 10px;
+}
+main#grid-basics section.grid-explicit-implicit .wrapper .box.a {
+	grid-column: 1 / 3;
+	grid-row: 1;
+}
+main#grid-basics section.grid-explicit-implicit .wrapper .box.b {
+	grid-column: 3;
+	grid-row: 1 / 3;
+}
+main#grid-basics section.grid-explicit-implicit .wrapper .box.c {
+	grid-column: 1;
+	grid-row: 2;
+}
+main#grid-basics section.grid-explicit-implicit .wrapper .box.d {
+	grid-column: 2;
+	grid-row: 2;
+}
+main#grid-basics section.grid-explicit-implicit .wrapper .box.e {
+	grid-column: 4 / 5;
+	grid-row: 1 / 4;
+}
+
+/* Defining grid areas */
+main#grid-basics section.define-grid-area .wrapper {
+	display: grid;
+	grid-template-columns: 120px 120px 120px;
+	grid-template-areas:
+		".......  header   header"
+		"sidebar  content  content";
+	grid-gap: 10px;
+}
+main#grid-basics section.define-grid-area .wrapper .box.header {
+	grid-area: header;
+}
+main#grid-basics section.define-grid-area .wrapper .box.sidebar {
+	grid-area: sidebar;
+}
+main#grid-basics section.define-grid-area .wrapper .box.content {
+	grid-area: content;
+}
+
+/* Redefining Grid Areas with Media Queries */
+main#grid-basics section.using-media-queries .wrapper {
+	display: grid;
+	grid-gap: var(--baseFontEm);
+	grid-template-areas: 
+		"header"
+		"sidebar"
+		"content"
+		"sidebar2"
+		"footer";
+}
+@media only screen and (min-width: 500px) {
+	main#grid-basics section.using-media-queries .wrapper {
+		grid-template-columns: 20% auto;
+		grid-template-areas: 
+			"header    header"
+			"sidebar   content"
+			"sidebar2  sidebar2"
+			"footer    footer";
+	}
+}
+@media only screen and (min-width: 600px) {
+	main#grid-basics section.using-media-queries .wrapper {
+		grid-template-columns: 120px auto 120px;
+		grid-template-areas:
+			"header   header   header"
+			"sidebar  content  sidebar2"
+			"footer   footer   footer";
+	}
+}
+main#grid-basics section.using-media-queries .wrapper .box.header {
+	grid-area: header;
+}
+main#grid-basics section.using-media-queries .wrapper .box.sidebar {
+	grid-area: sidebar;
+}
+main#grid-basics section.using-media-queries .wrapper .box.sidebar2 {
+	grid-area: sidebar2;
+}
+main#grid-basics section.using-media-queries .wrapper .box.content {
+	grid-area: content;
+}
+main#grid-basics section.using-media-queries .wrapper .box.footer {
+	grid-area: footer;
+}
+
+/* Source Independence */
+main#grid-basics section.source-independence .wrapper {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+}
+main#grid-basics section.source-independence .wrapper .box.section1 {
+	grid-row: 1 / 2;
+}
+main#grid-basics section.source-independence .wrapper .box.section2 {
+	grid-row: 3 / 4;
+}
+main#grid-basics section.source-independence .wrapper .box.section3 {
+	grid-row: 5 / 6;
+}
+main#grid-basics section.source-independence .wrapper .box.ad1 {
+	grid-row: 2 / 3;
+	margin-top: var(--baseFontEm);
+	margin-bottom: var(--baseFontEm);
+}
+main#grid-basics section.source-independence .wrapper .box.ad2 {
+	grid-row: 4 / 5;
+	margin-top: var(--baseFontEm);
+	margin-bottom: var(--baseFontEm);
+}
+
+/* Layering items */
+main#grid-basics section.layering .wrapper {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(5, [col] 100px);
+	grid-template-rows: repeat(3, [row] auto);
+}
+main#grid-basics section.layering .wrapper .box.a {
+	grid-column: col / span 2;
+	grid-row: row;
+}
+main#grid-basics section.layering .wrapper .box.b {
+	grid-column: col 3 / span 3;
+	grid-row: row;
+}
+main#grid-basics section.layering .wrapper .box.c {
+	grid-column: col;
+	grid-row: row 2;
+}
+main#grid-basics section.layering .wrapper .box.d {
+	grid-column: col 2 / span 3;
+	grid-row: row 2;
+	background-color: rgba(255,0,0,0.25);
+}
+main#grid-basics section.layering .wrapper .box.e {
+	grid-column: col / span 5;
+	grid-row: row 3;
+}
+main#grid-basics section.layering .wrapper .box.f {
+	grid-column: col 3 / span 3;
+	grid-row: row 2;
+	background-color: rgba(0,100,255,0.25);
+}
+
+/* A grid item as a new positioning context */
+main#grid-basics section.new-positioning-context .wrapper {
+	display: grid;
+	grid-template-columns: 200px 200px 200px;
+	grid-template-areas: 
+		"header   header   header"
+		"sidebar  content  content"
+		"footer   footer   footer";
+	grid-gap: 10px;
+}
+main#grid-basics section.new-positioning-context .wrapper .header {
+	grid-area: header;
+}
+main#grid-basics section.new-positioning-context .wrapper .sidebar {
+	grid-area: sidebar;
+}
+main#grid-basics section.new-positioning-context .wrapper .footer {
+	grid-area: footer;
+}
+main#grid-basics section.new-positioning-context .wrapper .content {
+	grid-area: content;
+	position: relative;
+}
+main#grid-basics section.new-positioning-context .wrapper .content img {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: rgba(0,100,255,0.25);
+}
+main#grid-basics section.new-positioning-context .wrapper .content img.tl {
+	top: 0;
+	left: 0;
+}
+main#grid-basics section.new-positioning-context .wrapper .content img.tr {
+	top: 0;
+	right: 0;
+}
+main#grid-basics section.new-positioning-context .wrapper .content img.br {
+	bottom: 0;
+	right: 0;
+}
+main#grid-basics section.new-positioning-context .wrapper .content img.bl {
+	bottom: 0;
+	left: 0;
+}
+
+/* Grid auto-placement */
+main#grid-basics section.grid-auto-plcmt .wrapper {
+	width: 600px;
+	display: grid;
+	grid-template-columns: repeat(6, 100px);
+	grid-gap: 10px;
+}
+main#grid-basics section.grid-auto-plcmt .wrapper .box:nth-child(even) {
+	border: 1px solid blue;
+}
+
+/* Grid auto-flow column */
+main#grid-basics section.grid-auto-flow .wrapper {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 100px 100px 100px;
+	grid-auto-flow: column;
+	grid-gap: 10px;
+}
+main#grid-basics section.grid-auto-flow .wrapper .box:nth-child(even) {
+	border: 1px solid blue;
+}
+
+/* The auto-fill keyword in repeating track definitions */
+main#grid-basics section.grid-auto-fill .wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 100px);
+	grid-gap: 10px;
+}
+main#grid-basics section.grid-auto-fill .wrapper .box.a {
+	grid-column: 1 / 4;
+}
+main#grid-basics section.grid-auto-fill .wrapper .box.b {
+	grid-column: 4 / 6;
+}
+main#grid-basics section.grid-auto-fill .wrapper .box.c {
+	grid-column: 1 / 3;
+	grid-row: 2;
+}
+main#grid-basics section.grid-auto-fill .wrapper .box.d {
+	grid-column: 3 / 6;
+	grid-row: 2;
+}
+main#grid-basics section.grid-auto-fill .wrapper .box.e {
+	grid-column: 1 / 6;
+	grid-row: 3;
+}
+
+/* Nested Grid */
+main#grid-basics section.grid-nested .wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, [col] 150px);
+	grid-template-rows: repeat(2, [row] auto);
+	grid-gap: 10px;
+}
+main#grid-basics section.grid-nested .wrapper .box.a {
+	grid-column: col / span 2;
+	grid-row: row;
+}
+main#grid-basics section.grid-nested .wrapper .box.b {
+	grid-column: col 3 / span 2;
+	grid-row: row;
+}
+main#grid-basics section.grid-nested .wrapper .box.c {
+	grid-column: col / span 2;
+	grid-row: row 2;
+}
+main#grid-basics section.grid-nested .wrapper .box.d {
+	grid-column: col 3 / span 2;
+	grid-row: row 2;
+	/* nested grid */
+	display: grid;
+	grid-area: 10px;
+	grid-template-columns: 1fr 1fr;
+}
+main#grid-basics section.grid-nested .wrapper .box.e {
+	grid-column: 1 / 3;
+	grid-row: 1;
+}
+main#grid-basics section.grid-nested .wrapper .box.f {
+	grid-column: 1 / 2;
+	grid-row: 2;
+}
+main#grid-basics section.grid-nested .wrapper .box.g {
+	grid-column: 2 / 3;
+	grid-row: 2;
+}
+
+/* Using Order */
+main#grid-basics section.using-order .wrapper {
+	width: 650px;
+	display: grid;
+	grid-template-columns: repeat(6, 100px);
+	grid-gap: 10px;
+}
+main#grid-basics section.using-order .wrapper .box {
+	order: 1;
+}
+main#grid-basics section.using-order .wrapper .box.c {
+	order: 2;
+}
+main#grid-basics section.using-order .wrapper .box.f {
+	order: -1;
+}
+main#grid-basics section.using-order .wrapper .box.j {
+	order: -2;
+}
+
+/* Box alignment align-items */
+main#grid-basics section.box-align-items .wrapper {
+	background: no-repeat url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/grid.png);
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 100px);
+	grid-gap: 10px;
+	align-items: center;
+}
+main#grid-basics section.box-align-items .wrapper .box.a {
+	grid-column: 1 / 3;
+	grid-row: 1/ 3;
+}
+main#grid-basics section.box-align-items .wrapper .box.b {
+	grid-column: 3 / 5;
+	grid-row: 1/ 3;
+}
+main#grid-basics section.box-align-items .wrapper .box.c {
+	grid-column: 1 / 3;
+	grid-row: 3 / 5;
+}
+main#grid-basics section.box-align-items .wrapper .box.d {
+	grid-column: 3 / 5;
+	grid-row: 3 / 5;
+}
+main#grid-basics section.box-align-items .wrapper .box.e {
+	grid-column: 5 / 7;
+	grid-row: 1 / 5;
+	align-self: stretch;
+}
+
+/* Box alignment justify-items */
+main#grid-basics section.box-justify-items .wrapper {
+	background: no-repeat url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/grid.png);
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 100px);
+	grid-gap: 10px;
+	justify-items: center;
+}
+main#grid-basics section.box-justify-items .wrapper .box.a {
+	grid-column: 1 / 3;
+	grid-row: 1/ 3;
+}
+main#grid-basics section.box-justify-items .wrapper .box.b {
+	grid-column: 3 / 5;
+	grid-row: 1/ 3;
+}
+main#grid-basics section.box-justify-items .wrapper .box.c {
+	grid-column: 1 / 3;
+	grid-row: 3 / 5;
+}
+main#grid-basics section.box-justify-items .wrapper .box.d {
+	grid-column: 3 / 5;
+	grid-row: 3 / 5;
+}
+main#grid-basics section.box-justify-items .wrapper .box.e {
+	grid-column: 5 / 7;
+	grid-row: 1 / 5;
+	align-self: stretch;
+}
+
+/* Box alignment align-self */
+main#grid-basics section.box-align-self .wrapper {
+	background: no-repeat url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/grid.png);
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 100px);
+	grid-gap: 10px;
+}
+main#grid-basics section.box-align-self .wrapper .box.a {
+	grid-column: 1 / 3;
+	grid-row: 1/ 3;
+	align-self: stretch;
+}
+main#grid-basics section.box-align-self .wrapper .box.b {
+	grid-column: 3 / 5;
+	grid-row: 1/ 3;
+	align-self: end;
+}
+main#grid-basics section.box-align-self .wrapper .box.c {
+	grid-column: 1 / 3;
+	grid-row: 3 / 5;
+	align-self: start;
+}
+main#grid-basics section.box-align-self .wrapper .box.d {
+	grid-column: 3 / 5;
+	grid-row: 3 / 5;
+	align-self: center;
+}
+main#grid-basics section.box-align-self .wrapper .box.e {
+	grid-column: 5 / 7;
+	grid-row: 1 / 5;
+	align-self: stretch;
+}
+
+/* Box alignment justify-self */
+main#grid-basics section.box-justify-self .wrapper {
+	background: no-repeat url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/grid.png);
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 100px);
+	grid-gap: 10px;
+}
+main#grid-basics section.box-justify-self .wrapper .box.a {
+	grid-column: 1 / 3;
+	grid-row: 1/ 3;
+	justify-self: stretch;
+}
+main#grid-basics section.box-justify-self .wrapper .box.b {
+	grid-column: 3 / 5;
+	grid-row: 1/ 3;
+	justify-self: end;
+}
+main#grid-basics section.box-justify-self .wrapper .box.c {
+	grid-column: 1 / 3;
+	grid-row: 3 / 5;
+	justify-self: start;
+}
+main#grid-basics section.box-justify-self .wrapper .box.d {
+	grid-column: 3 / 5;
+	grid-row: 3 / 5;
+	justify-self: center;
+}
+main#grid-basics section.box-justify-self .wrapper .box.e {
+	grid-column: 5 / 7;
+	grid-row: 1 / 5;
+	align-self: stretch;
+}
+
+/* minmax() in auto-fill repeating tracks */
+main#grid-basics section.using-minmax .wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+
+/* A simple minmax example */
+main#grid-basics section.simple-minmax .wrapper {
+	display: grid;
+	grid-template-columns: minmax(200px, 1fr) 200px 200px;
+	grid-gap: 10px;
+}
+
+/* minmax() and spanning columns and rows */
+main#grid-basics section.minmax-spanning .wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+main#grid-basics section.minmax-spanning .wrapper .box.a {
+	grid-column: auto / span 2;
+}
+main#grid-basics section.minmax-spanning .wrapper .box.k {
+	grid-column: auto / span 3;
+}
+main#grid-basics section.minmax-spanning .wrapper .box.g {
+	grid-column: auto / span 2;
+	grid-row: auto / span 2;
+}
+
+/* Aligning the Grid */
+main#grid-basics section.aligning-the-grid .wrapper {
+	width: 500px;
+	height: 400px;
+	border: 1px solid blue;
+	display: grid;
+	grid-template-columns: repeat(4, 80px);
+	grid-template-rows: repeat(3, 100px);
+	grid-gap: 10px;
+	justify-content: center;
+	align-content: end;
+}
+main#grid-basics section.aligning-the-grid .wrapper .box.a {
+	grid-column: 1 / 5;
+}
+main#grid-basics section.aligning-the-grid .wrapper .box.b {
+	grid-column: 1 / 3;
+	grid-row: 2 / 4;
+}
+main#grid-basics section.aligning-the-grid .wrapper .box.c {
+	grid-column: 3 / 5;
+}
+
+/* Aligning the grid with space-around and space-between */
+main#grid-basics section.space-around-between .wrapper {
+	width: 500px;
+	height: 400px;
+	border: 1px solid blue;
+	display: grid;
+	grid-template-columns: repeat(4, 80px);
+	grid-template-rows: repeat(3, 100px);
+	grid-gap: 10px;
+	justify-content: space-around;
+	align-content: space-between;
+}
+main#grid-basics section.space-around-between .wrapper .box.a {
+	grid-column: 1 / 5;
+}
+main#grid-basics section.space-around-between .wrapper .box.b {
+	grid-column: 1 / 3;
+	grid-row: 2 / 4;
+}
+main#grid-basics section.space-around-between .wrapper .box.c {
+	grid-column: 3 / 5;
+}
+
+/* Multiple tracks in a track-list with auto-fill and minmax() */
+main#grid-basics section.mltp-tracks-auto-fill-minmax .wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr) minmax(200px, 2fr));
+	grid-gap: 10px;
+}
+main#grid-basics section.mltp-tracks-auto-fill-minmax .wrapper .box:nth-child(even) {
+	border: 1px solid blue;
+}
+
+/* Percentage based grids and gaps */
+main#grid-basics section.percentage-based .wrapper .wrapper {
+	width: 90%;
+	display: grid;
+	grid-gap: 2%;
+	grid-template-columns: repeat(6, 10%);
+}
+main#grid-basics section.percentage-based .wrapper .wrapper.with-height {
+	height: 50vh;
+}
+main#grid-basics section.percentage-based .wrapper .wrapper .box:nth-child(even) {
+	border: 1px solid blue;
+}
+
+/* auto-fill vs. auto-fit */
+main#grid-basics section.auto-fill-v-auto-fit .wrapper.w1 {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+main#grid-basics section.auto-fill-v-auto-fit .wrapper.w2 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+main#grid-basics section.auto-fill-v-auto-fit .wrapper .box:nth-child(even) {
+	border: 1px solid blue;
+}
+
+/* GRID EX2A */
+main#grid-ex2a {
+	border: 1px solid #666;
+	padding: var(--baseFontEm);
+	margin-top: var(--baseFontEm);
+	margin-bottom: var(--baseFontEm);
+	margin-left: auto;
+	margin-right: auto;
+	width: 80vw;
+	height: 80vw;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-gap: var(--baseFontEm);
+}
+main#grid-ex2a div.block-text {
+	grid-column: 1 / 3;
+	grid-row: 1 / 2;
+	align-self: end;
+}
+main#grid-ex2a ul.block-img {
+	grid-column: 1 / 4;
+	grid-row: 1 / 4;
+	display: inline-grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-gap: var(--baseFontEm);
+	list-style-type: none;
+}
+main#grid-ex2a ul.block-img li { overflow: hidden; }
+main#grid-ex2a ul.block-img img { width: 100%; }
+main#grid-ex2a ul.block-img li:nth-child(1) {
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+}
+main#grid-ex2a ul.block-img li:nth-child(2) {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+}
+main#grid-ex2a ul.block-img li:nth-child(3) {
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+}
+main#grid-ex2a ul.block-img li:nth-child(4) {
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
+}
+main#grid-ex2a ul.block-img li:nth-child(5) {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+}
+main#grid-ex2a ul.block-img li:nth-child(6) {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+
+/* GRID EX2B */
+main#grid-ex2b {
+	width: 100vw;
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns:	50px 1fr 2fr 1fr 50px;
+	grid-template-rows:		50px 1fr 1fr 1fr 50px;
+}
+main#grid-ex2b img.bkg {
+	width: 100%;
+	grid-column: 1 / 7;
+	grid-row: 1 / 6;
+	z-index: -999;
+}
+main#grid-ex2b div.title {
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+
+	display: inline-grid;
+	grid-template: 2fr 1fr;
+	justify-items: start;
+	grid-gap: var(--baseFontEm);
+}
+main#grid-ex2b div.title h1.sub-heading {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+	justify-self: end;
+	color: orange;
+	font-weight: 100;
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	text-align: right;
+}
+main#grid-ex2b div.title h1.heading {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+	color: var(--white);
+	font-weight: 100;
+}
+main#grid-ex2b div.title h1 span.orange {
+	color: orange;
+	font-weight: bold;
+}
+main#grid-ex2b ul {
+	grid-column: 3 / 4;
+	grid-row: 4 / 5;
+
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+main#grid-ex2b ul li {
+	width: 100%;
+	padding: var(--msDown4);
+}
+main#grid-ex2b ul li a {
+	padding-left: var(--msDown4);
+	text-decoration: none;
+	transition: all .1s ease-in-out;
+}
+main#grid-ex2b ul li:hover {
+	cursor: pointer;
+}
+main#grid-ex2b ul li:hover a {
+	padding-left: var(--baseFontEm);
+}
+main#grid-ex2b ul li:nth-child(odd) { background-color: orange; }
+main#grid-ex2b ul li:nth-child(odd) a { color: white; }
+main#grid-ex2b ul li:nth-child(even) { background-color: white; }
+main#grid-ex2b ul li:nth-child(even) a { color: orange; }
+main#grid-ex2b div.cbands {
+	z-index: 999;
+}
+main#grid-ex2b div.cbands div {
+	padding: 0;
+	margin: 0;
+}
+main#grid-ex2b div.cbands div.orange {
+	background-color: orange;
+}
+main#grid-ex2b div.cbands div.white {
+	background-color: white;
+}
+main#grid-ex2b div.cb-1 {
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
+	display: flex;
+	flex-direction: column;
+}
+main#grid-ex2b div.cb-1 div {
+	width: 50px;
+	height: 50px;
+}
